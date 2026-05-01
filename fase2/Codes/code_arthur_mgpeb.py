@@ -1,3 +1,5 @@
+import random
+
 modulos    = []   # lista geral de todos os modulos cadastrados
 fila_pouso = []   # fila de pouso FIFO (ordem de chegada a órbita)
 pilha_emer = []   # pilha de emergência LIFO (modulos criticos primeiro)
