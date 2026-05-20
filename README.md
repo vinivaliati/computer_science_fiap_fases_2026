@@ -64,6 +64,7 @@ computer_science_fiap/
 
 ### ✅ Fase 1 — Decolagem da Missão
 [Acessar README da Fase 1](./fase1/README.md)
+
 [Acessar Relatório da Fase 1](./fase1/relatorio.pdf)
 
 Análise de **10000 leituras de telemetria** do sistema pré-decolagem da espaçonave **Aurora Siger**, validando parâmetros operacionais como temperatura, integridade estrutural, níveis de energia, pressão dos tanques e status dos módulos críticos. O projeto inclui algoritmo de verificação com classificação de status, análise energética e visualizações dos resultados.
@@ -74,6 +75,7 @@ Análise de **10000 leituras de telemetria** do sistema pré-decolagem da espaç
 
 ### ✅ Fase 2 — Gerenciamento de Pouso (MGPEB)
 [Acessar README da Fase 2](./fase2/README.md)
+
 [Acessar Relatório da Fase 2](./fase2/relatorio.pdf)
 
 Desenvolvimento de um **Módulo de Gerenciamento de Pouso e Estabilização de Base (MGPEB)** para a missão **Aurora Siger**, simulando a tomada de decisão em um ambiente crítico.
@@ -93,6 +95,7 @@ O projeto inclui:
 
 ### ✅ Fase 3 — Gestão da Colônia Espacial (MGCE)
 [Acessar README da Fase 3](./fase3/README.md)
+
 [Acessar Relatório da Fase 3](./fase3/relatorio.pdf)
 
 Desenvolvimento de um **Módulo de Gerenciamento da Colônia Espacial Marte (MGCE)** para a missão **Aurora Siger**, simulando um sistema inteligente de gestão energética em ambiente crítico.
