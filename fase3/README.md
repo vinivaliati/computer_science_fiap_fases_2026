@@ -115,8 +115,3 @@ Os coeficientes `a` e `b` são calculados a partir dos 365 dias gerados, sem uso
     math         # cálculos da regressão (stdlib)
     matplotlib   # geração dos gráficos (apenas graficos.py)
 
----
-
-## Observação
-
-Este projeto foi desenvolvido com foco educacional, aplicando conceitos de estruturas de dados, lógica condicional e modelagem matemática para simular um sistema inteligente de gestão energética em um cenário espacial crítico.

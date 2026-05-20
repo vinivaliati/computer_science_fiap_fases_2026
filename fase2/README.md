@@ -99,8 +99,3 @@ ou abra no notebook:
     numpy  
     matplotlib  
 
----
-
-## Observação
-
-Este projeto foi desenvolvido com foco educacional, aplicando conceitos fundamentais de programação, algoritmos e lógica para simular um sistema embarcado de decisão em um cenário crítico.
