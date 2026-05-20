@@ -93,6 +93,7 @@ O projeto inclui:
 
 ### ✅ Fase 3 — Gestão da Colônia Espacial (MGCE)
 [Acessar README da Fase 3](./fase3/README.md)
+[Acessar Relatório da Fase 3](./fase3/relatorio.pdf)
 
 Desenvolvimento de um **Módulo de Gerenciamento da Colônia Espacial Marte (MGCE)** para a missão **Aurora Siger**, simulando um sistema inteligente de gestão energética em ambiente crítico.
 
