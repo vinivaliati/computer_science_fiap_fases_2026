@@ -1,65 +1,8 @@
-"""
-================================================================================
- SIGIC - Sistema Inteligente de Gerenciamento da Infraestrutura da Colonia
- Colonia Aurora Siger - Base Marciana
-================================================================================
-
- ARQUIVO PRINCIPAL DE EXECUCAO.
- Para rodar o sistema: python codigo_fonte.py
-
- Este sistema representa computacionalmente a rede energetica e operacional
- da colonia Aurora Siger usando um GRAFO PONDERADO, permitindo:
-   - Visualizar a topologia da rede;
-   - Consultar informacoes de cada modulo;
-   - Calcular caminhos minimos entre modulos (algoritmo de Dijkstra);
-   - Explorar a conectividade da rede (busca em largura/profundidade - BFS/DFS);
-   - Simular falhas e situacoes operacionais (queda de modulos/conexoes,
-     picos de consumo, redistribuicao de energia).
-
- REGRAS TECNICAS RESPEITADAS:
-   - Apenas bibliotecas padrao do Python (heapq, collections, json, os, time).
-   - Nenhum framework externo (sem networkx, sem pandas, sem matplotlib).
-
- ESTRUTURA GERAL DO ARQUIVO (use os comentarios em blocos para navegar):
-   1. Estruturas de dados (Modulo, GrafoColonia)
-   2. Construcao da rede da Aurora Siger
-   3. Algoritmos de grafos (BFS, DFS, Dijkstra, pontos de articulacao)
-   4. Simulacoes operacionais
-   5. Camada de apresentacao (menu de terminal)
-   6. Funcao principal (main)
-================================================================================
-"""
-
-import heapq                      # fila de prioridade eficiente para o Dijkstra
-import json                       # exportar/importar dados da rede (arquivo auxiliar)
-import os                         # checagem de arquivos auxiliares
-import time                       # pequenas pausas para legibilidade no terminal
-from collections import deque     # fila eficiente (O(1)) usada na BFS
-
-
-# ==============================================================================
-# 1. ESTRUTURAS DE DADOS
-# ==============================================================================
-#
-# A rede da colonia e modelada como um GRAFO NAO DIRECIONADO E PONDERADO:
-#   - Vertices (nodes)  -> modulos da infraestrutura (habitats, geracao de
-#                          energia, suporte a vida, etc).
-#   - Arestas (edges)   -> conexoes fisicas (dutos de energia/cabos/tuneis)
-#                          entre modulos, com peso = distancia em metros,
-#                          usada tambem como proxy de perda de energia no
-#                          transporte (quanto mais distante, maior a perda).
-#
-# Estruturas de dados utilizadas (Criterio "Estruturas de dados" do enunciado):
-#   - dict (tabela hash)   -> lista de adjacencia do grafo: O(1) para acessar
-#                             os vizinhos de um modulo.
-#   - list                 -> armazenar vizinhos e arestas de cada modulo.
-#   - tuple                -> par (vizinho, peso) nas listas de adjacencia.
-#   - set                  -> controle de nodos visitados em BFS/DFS (O(1) lookup).
-#   - heapq (heap binario) -> fila de prioridade do algoritmo de Dijkstra.
-#   - deque                -> fila da busca em largura (BFS).
-#   - class (objeto)       -> Modulo, encapsulando atributos de cada vertice.
-# ==============================================================================
-
+import heapq                      
+import json                       
+import os                         
+import time                       
+from collections import deque     
 
 class Modulo:
     """
@@ -107,12 +50,9 @@ class GrafoColonia:
     """
 
     def __init__(self):
-        self.modulos = {}          # dict: nome -> objeto Modulo
-        self.adjacencia = {}       # dict: nome -> lista de tuplas (vizinho, peso)
+        self.modulos = {}          
+        self.adjacencia = {}       
 
-    # ---------------------------------------------------------------- #
-    # Construcao do grafo
-    # ---------------------------------------------------------------- #
     def adicionar_modulo(self, modulo: Modulo):
         """Adiciona um novo modulo (vertice) na rede."""
         self.modulos[modulo.nome] = modulo
@@ -143,10 +83,6 @@ class GrafoColonia:
 
     def listar_modulos(self):
         return list(self.modulos.keys())
-
-    # ---------------------------------------------------------------- #
-    # 3. ALGORITMOS DE GRAFOS
-    # ---------------------------------------------------------------- #
 
     def bfs(self, origem):
         """
@@ -201,8 +137,7 @@ class GrafoColonia:
                 continue
             visitados.add(atual)
             ordem.append(atual)
-            # Adiciona vizinhos em ordem reversa para manter uma ordem
-            # de visita mais intuitiva (parecida com a ordem de insercao).
+            
             for vizinho, _peso in reversed(self.vizinhos(atual)):
                 if vizinho not in visitados:
                     pilha.append(vizinho)
@@ -234,7 +169,6 @@ class GrafoColonia:
         anteriores = {nome: None for nome in self.modulos}
         visitados = set()
 
-        # heap de tuplas (distancia_acumulada, nome_modulo)
         heap = [(0, origem)]
 
         while heap:
@@ -244,7 +178,6 @@ class GrafoColonia:
                 continue
             visitados.add(atual)
 
-            # Pequena otimizacao: se ja alcancamos o destino, podemos parar.
             if destino is not None and atual == destino:
                 break
 
@@ -263,7 +196,7 @@ class GrafoColonia:
         """Reconstroi o caminho (lista de modulos) do destino até a origem,
         usando o dict de predecessores gerado pelo Dijkstra."""
         if anteriores.get(destino) is None and destino != origem:
-            return None  # nao ha caminho
+            return None 
 
         caminho = []
         atual = destino
@@ -300,7 +233,6 @@ class GrafoColonia:
             if not restantes:
                 continue
 
-            # Remove temporariamente o candidato das adjacencias.
             backup = {m: list(self.adjacencia[m]) for m in todos}
             for m in todos:
                 self.adjacencia[m] = [
@@ -310,7 +242,6 @@ class GrafoColonia:
             origem_teste = restantes[0]
             alcancados = set(self._dfs_sem_modulo(origem_teste, candidato))
 
-            # Restaura o grafo original.
             self.adjacencia = backup
 
             if alcancados != set(restantes):
@@ -334,10 +265,6 @@ class GrafoColonia:
                 if vizinho not in visitados and vizinho != excluido:
                     pilha.append(vizinho)
         return ordem
-
-    # ---------------------------------------------------------------- #
-    # Persistencia (arquivo auxiliar)
-    # ---------------------------------------------------------------- #
     def exportar_json(self, caminho_arquivo):
         """Exporta o estado atual da rede (modulos + conexoes) para JSON,
         usado como arquivo auxiliar de apoio (arquivos_auxiliares/)."""
@@ -369,22 +296,6 @@ class GrafoColonia:
                     vistas.add(chave)
                     conexoes.append({"origem": origem, "destino": destino, "peso": peso})
         return conexoes
-
-
-# ==============================================================================
-# 2. CONSTRUCAO DA REDE DA COLONIA AURORA SIGER
-# ==============================================================================
-#
-# Topologia escolhida: 12 modulos cobrindo geracao/armazenamento de energia,
-# suporte a vida, habitats, producao de alimento, pesquisa, comando,
-# reciclagem de agua e hangar. Os pesos das conexoes representam a
-# distancia fisica em metros entre modulos (usada como proxy de perda de
-# energia no transporte). A rede NAO e totalmente conectada par-a-par
-# (nem completa), de forma a tornar a simulacao de falhas e os algoritmos
-# de caminho minimo relevantes.
-# ==============================================================================
-
-
 def construir_rede_aurora_siger():
     """Cria e retorna o grafo completo da colonia Aurora Siger, ja povoado
     com os modulos e conexoes da infraestrutura."""
@@ -464,9 +375,6 @@ def construir_rede_aurora_siger():
     return grafo
 
 
-# ==============================================================================
-# 4. SIMULACOES OPERACIONAIS
-# ==============================================================================
 
 def simular_falha_modulo(grafo, nome_modulo):
     """
@@ -499,10 +407,7 @@ def simular_falha_modulo(grafo, nome_modulo):
         "referencia_usada": referencia,
     }
 
-    # Restaura o estado original da rede (a simulacao nao deve ser permanente
-    # a menos que o usuario confirme, ver menu).
     grafo.modulos[nome_modulo].status = status_original
-    # Reconstroi as conexoes originais de forma simples e segura:
     grafo.adjacencia[nome_modulo] = []
     for vizinho, peso in conexoes_originais:
         grafo.adjacencia[vizinho] = [(v, p) for (v, p) in grafo.adjacencia[vizinho] if v != nome_modulo]
@@ -553,11 +458,6 @@ def balanco_energetico_geral(grafo):
         "consumo_total_kw": consumo_total,
         "saldo_kw": geracao_total - consumo_total,
     }
-
-
-# ==============================================================================
-# 5. CAMADA DE APRESENTACAO (MENU DE TERMINAL)
-# ==============================================================================
 
 LINHA = "-" * 70
 
@@ -833,11 +733,6 @@ def menu_principal():
         else:
             print("\nOpcao invalida, tente novamente.")
             time.sleep(1)
-
-
-# ==============================================================================
-# 6. FUNCAO PRINCIPAL
-# ==============================================================================
 
 def main():
     menu_principal()
