@@ -1,22 +1,11 @@
-import heapq                      
-import json                       
-import os                         
-import time                       
-from collections import deque     
+import heapq
+import json
+import os
+import time
+from collections import deque
+
 
 class Modulo:
-    """
-    Representa um modulo (vertice) da infraestrutura da colonia.
-
-    Atributos:
-        nome (str): identificador unico do modulo.
-        tipo (str): categoria do modulo (ex: 'Geracao de Energia', 'Habitat').
-        consumo_kw (float): consumo medio de energia do modulo, em kW.
-        geracao_kw (float): geracao de energia do modulo (0 se nao gera).
-        status (str): 'OPERACIONAL', 'CRITICO' ou 'INATIVO'.
-        descricao (str): breve descricao funcional do modulo.
-    """
-
     def __init__(self, nome, tipo, consumo_kw=0.0, geracao_kw=0.0,
                  descricao="", status="OPERACIONAL"):
         self.nome = nome
@@ -27,7 +16,6 @@ class Modulo:
         self.status = status
 
     def balanco_energia(self):
-        """Retorna o saldo de energia do modulo (geracao - consumo) em kW."""
         return self.geracao_kw - self.consumo_kw
 
     def __repr__(self):
@@ -35,42 +23,22 @@ class Modulo:
 
 
 class GrafoColonia:
-    """
-    Grafo ponderado e nao-direcionado que representa a rede fisica da
-    colonia Aurora Siger.
-
-    Implementado com LISTA DE ADJACENCIA usando um dicionario:
-        self.adjacencia = {
-            "Nucleo Energetico": [("Habitat A", 120), ("Habitat B", 95), ...],
-            ...
-        }
-    Essa escolha (em vez de matriz de adjacencia) e mais eficiente em memoria
-    para grafos esparsos, como e o caso de uma rede fisica de colonia, onde
-    cada modulo se conecta a poucos vizinhos.
-    """
-
     def __init__(self):
-        self.modulos = {}          
-        self.adjacencia = {}       
+        self.modulos = {}
+        self.adjacencia = {}
 
     def adicionar_modulo(self, modulo: Modulo):
-        """Adiciona um novo modulo (vertice) na rede."""
         self.modulos[modulo.nome] = modulo
         if modulo.nome not in self.adjacencia:
             self.adjacencia[modulo.nome] = []
 
     def adicionar_conexao(self, origem, destino, peso):
-        """
-        Adiciona uma conexao fisica (aresta) bidirecional entre dois modulos.
-        peso: distancia em metros (tambem usada como custo de perda de energia).
-        """
         if origem not in self.modulos or destino not in self.modulos:
             raise ValueError("Ambos os modulos precisam existir antes da conexao.")
         self.adjacencia[origem].append((destino, peso))
         self.adjacencia[destino].append((origem, peso))
 
     def remover_conexao(self, origem, destino):
-        """Remove uma conexao (usado nas simulacoes de falha)."""
         self.adjacencia[origem] = [
             (v, p) for (v, p) in self.adjacencia[origem] if v != destino
         ]
@@ -85,21 +53,6 @@ class GrafoColonia:
         return list(self.modulos.keys())
 
     def bfs(self, origem):
-        """
-        Busca em Largura (Breadth-First Search).
-
-        Explora a rede "em camadas", a partir do modulo de origem,
-        util para responder: "quais modulos sao alcancaveis e em quantos
-        saltos (numero de conexoes) a partir deste ponto?".
-
-        Estrutura de dados chave: deque (fila), garante ordem de visita
-        por nivel de distancia (em numero de saltos, nao em metros).
-
-        Retorna:
-            ordem (list): modulos na ordem em que foram visitados.
-            distancias_saltos (dict): numero minimo de saltos (arestas)
-                                       da origem até cada modulo alcancado.
-        """
         visitados = {origem}
         fila = deque([origem])
         ordem = []
@@ -117,16 +70,6 @@ class GrafoColonia:
         return ordem, distancias_saltos
 
     def dfs(self, origem):
-        """
-        Busca em Profundidade (Depth-First Search), implementada de forma
-        iterativa com uma pilha (list usada como pilha - append/pop no fim).
-
-        Util para verificar conectividade geral da rede e para detectar
-        se existe caminho (sem se importar com o peso) entre dois modulos.
-
-        Retorna:
-            ordem (list): modulos na ordem de visita em profundidade.
-        """
         visitados = set()
         pilha = [origem]
         ordem = []
@@ -137,7 +80,7 @@ class GrafoColonia:
                 continue
             visitados.add(atual)
             ordem.append(atual)
-            
+
             for vizinho, _peso in reversed(self.vizinhos(atual)):
                 if vizinho not in visitados:
                     pilha.append(vizinho)
@@ -145,25 +88,9 @@ class GrafoColonia:
         return ordem
 
     def modulos_alcancaveis(self, origem):
-        """Retorna o conjunto de modulos alcancaveis a partir de 'origem' (via DFS)."""
         return set(self.dfs(origem))
 
     def dijkstra(self, origem, destino=None):
-        """
-        Algoritmo de Dijkstra: calcula o caminho de MENOR CUSTO (distancia
-        total em metros / perda de energia) entre 'origem' e todos os
-        demais modulos da rede (ou apenas até 'destino', se informado).
-
-        Estrutura de dados chave: heap binario (heapq) como fila de
-        prioridade, garantindo que o proximo modulo processado seja
-        sempre o de menor custo acumulado conhecido -> complexidade
-        O((V + E) log V).
-
-        Retorna:
-            distancias (dict): custo minimo da origem até cada modulo.
-            anteriores (dict): predecessor de cada modulo no caminho minimo
-                                (usado para reconstruir o caminho).
-        """
         distancias = {nome: float("inf") for nome in self.modulos}
         distancias[origem] = 0
         anteriores = {nome: None for nome in self.modulos}
@@ -193,10 +120,8 @@ class GrafoColonia:
         return distancias, anteriores
 
     def reconstruir_caminho(self, anteriores, origem, destino):
-        """Reconstroi o caminho (lista de modulos) do destino até a origem,
-        usando o dict de predecessores gerado pelo Dijkstra."""
         if anteriores.get(destino) is None and destino != origem:
-            return None 
+            return None
 
         caminho = []
         atual = destino
@@ -212,19 +137,6 @@ class GrafoColonia:
         return caminho
 
     def pontos_de_articulacao(self):
-        """
-        Identifica MODULOS CRITICOS da rede: aqueles que, se cairem,
-        desconectam a colonia em duas ou mais partes (pontos de
-        articulacao / "cut vertices").
-
-        Estrategia (simples e didatica, compativel com o nivel da fase):
-        para cada modulo M, remove-se M temporariamente e verifica-se,
-        via DFS, se o restante da rede continua totalmente conectado.
-        Se nao continuar, M e um ponto critico.
-
-        Retorna:
-            criticos (list): nomes dos modulos identificados como criticos.
-        """
         criticos = []
         todos = self.listar_modulos()
 
@@ -250,8 +162,6 @@ class GrafoColonia:
         return criticos
 
     def _dfs_sem_modulo(self, origem, excluido):
-        """DFS auxiliar usada por pontos_de_articulacao (modulo excluido ja
-        removido das adjacencias antes da chamada)."""
         visitados = set()
         pilha = [origem]
         ordem = []
@@ -265,9 +175,8 @@ class GrafoColonia:
                 if vizinho not in visitados and vizinho != excluido:
                     pilha.append(vizinho)
         return ordem
+
     def exportar_json(self, caminho_arquivo):
-        """Exporta o estado atual da rede (modulos + conexoes) para JSON,
-        usado como arquivo auxiliar de apoio (arquivos_auxiliares/)."""
         dados = {
             "modulos": [
                 {
@@ -286,7 +195,6 @@ class GrafoColonia:
             json.dump(dados, f, ensure_ascii=False, indent=2)
 
     def _listar_conexoes_unicas(self):
-        """Retorna a lista de conexoes sem duplicar (a->b e b->a)."""
         vistas = set()
         conexoes = []
         for origem, vizinhos in self.adjacencia.items():
@@ -296,9 +204,9 @@ class GrafoColonia:
                     vistas.add(chave)
                     conexoes.append({"origem": origem, "destino": destino, "peso": peso})
         return conexoes
+
+
 def construir_rede_aurora_siger():
-    """Cria e retorna o grafo completo da colonia Aurora Siger, ja povoado
-    com os modulos e conexoes da infraestrutura."""
     grafo = GrafoColonia()
 
     modulos = [
@@ -375,22 +283,13 @@ def construir_rede_aurora_siger():
     return grafo
 
 
-
 def simular_falha_modulo(grafo, nome_modulo):
-    """
-    Simula a queda (falha total) de um modulo da colonia: marca o modulo
-    como INATIVO, remove temporariamente suas conexoes e reavalia quais
-    modulos permanecem alcancaveis a partir do Centro de Comando.
-
-    Retorna um relatorio (dict) com o que foi observado.
-    """
     if nome_modulo not in grafo.modulos:
         return {"erro": f"Modulo '{nome_modulo}' nao existe na rede."}
 
     conexoes_originais = list(grafo.adjacencia[nome_modulo])
     status_original = grafo.modulos[nome_modulo].status
 
-    # "Derruba" o modulo: remove suas conexoes da rede.
     grafo.modulos[nome_modulo].status = "INATIVO"
     for vizinho, _peso in conexoes_originais:
         grafo.remover_conexao(nome_modulo, vizinho)
@@ -418,15 +317,6 @@ def simular_falha_modulo(grafo, nome_modulo):
 
 
 def simular_pico_consumo(grafo, fator=1.5):
-    """
-    Simula um pico de consumo energetico (ex: tempestade de poeira marciana
-    exigindo mais aquecimento/filtragem de ar): multiplica o consumo de
-    todos os modulos por 'fator' e calcula o saldo energetico total da
-    colonia, comparando geracao total x consumo total.
-
-    Retorna um relatorio (dict) com geracao total, consumo simulado total
-    e o saldo (positivo = energia sobrando, negativo = deficit).
-    """
     geracao_total = sum(m.geracao_kw for m in grafo.modulos.values())
     consumo_simulado_total = sum(m.consumo_kw * fator for m in grafo.modulos.values())
     saldo = geracao_total - consumo_simulado_total
@@ -450,7 +340,6 @@ def simular_pico_consumo(grafo, fator=1.5):
 
 
 def balanco_energetico_geral(grafo):
-    """Calcula o balanco energetico atual (sem simulacao) de toda a colonia."""
     geracao_total = sum(m.geracao_kw for m in grafo.modulos.values())
     consumo_total = sum(m.consumo_kw for m in grafo.modulos.values())
     return {
@@ -458,6 +347,7 @@ def balanco_energetico_geral(grafo):
         "consumo_total_kw": consumo_total,
         "saldo_kw": geracao_total - consumo_total,
     }
+
 
 LINHA = "-" * 70
 
@@ -733,6 +623,7 @@ def menu_principal():
         else:
             print("\nOpcao invalida, tente novamente.")
             time.sleep(1)
+
 
 def main():
     menu_principal()
