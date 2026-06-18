@@ -1,0 +1,210 @@
+{
+  "modulos": [
+    {
+      "nome": "Nucleo Energetico",
+      "tipo": "Geracao de Energia",
+      "consumo_kw": 40,
+      "geracao_kw": 500,
+      "status": "OPERACIONAL",
+      "descricao": "Reator compacto que fornece a maior parte da energia da colonia."
+    },
+    {
+      "nome": "Campo Solar Norte",
+      "tipo": "Geracao de Energia",
+      "consumo_kw": 5,
+      "geracao_kw": 150,
+      "status": "OPERACIONAL",
+      "descricao": "Painéis solares na regiao norte da base."
+    },
+    {
+      "nome": "Campo Solar Sul",
+      "tipo": "Geracao de Energia",
+      "consumo_kw": 5,
+      "geracao_kw": 140,
+      "status": "OPERACIONAL",
+      "descricao": "Painéis solares na regiao sul da base."
+    },
+    {
+      "nome": "Estacao de Armazenamento",
+      "tipo": "Armazenamento de Energia",
+      "consumo_kw": 10,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Baterias de longa duracao para picos de consumo e noites marcianas."
+    },
+    {
+      "nome": "Suporte a Vida Central",
+      "tipo": "Suporte a Vida",
+      "consumo_kw": 80,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Controle de oxigenio, agua e atmosfera para toda a colonia."
+    },
+    {
+      "nome": "Habitat A",
+      "tipo": "Habitat",
+      "consumo_kw": 60,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Modulo residencial - ala A."
+    },
+    {
+      "nome": "Habitat B",
+      "tipo": "Habitat",
+      "consumo_kw": 55,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Modulo residencial - ala B."
+    },
+    {
+      "nome": "Habitat C",
+      "tipo": "Habitat",
+      "consumo_kw": 50,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Modulo residencial - ala C."
+    },
+    {
+      "nome": "Estufa Hidroponica",
+      "tipo": "Producao de Alimento",
+      "consumo_kw": 45,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Producao de alimentos via cultivo hidroponico."
+    },
+    {
+      "nome": "Laboratorio de Pesquisa",
+      "tipo": "Pesquisa",
+      "consumo_kw": 35,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Pesquisas cientificas e analises de solo/atmosfera."
+    },
+    {
+      "nome": "Centro de Comando",
+      "tipo": "Operacional",
+      "consumo_kw": 25,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Controle administrativo e operacional da colonia."
+    },
+    {
+      "nome": "Reciclagem de Agua",
+      "tipo": "Suporte a Vida",
+      "consumo_kw": 20,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Tratamento e reciclagem de agua da colonia."
+    },
+    {
+      "nome": "Hangar de Veiculos",
+      "tipo": "Operacional",
+      "consumo_kw": 15,
+      "geracao_kw": 0,
+      "status": "OPERACIONAL",
+      "descricao": "Armazenamento e manutencao de veiculos de superficie."
+    }
+  ],
+  "conexoes": [
+    {
+      "origem": "Nucleo Energetico",
+      "destino": "Estacao de Armazenamento",
+      "peso": 60
+    },
+    {
+      "origem": "Nucleo Energetico",
+      "destino": "Centro de Comando",
+      "peso": 110
+    },
+    {
+      "origem": "Nucleo Energetico",
+      "destino": "Campo Solar Norte",
+      "peso": 200
+    },
+    {
+      "origem": "Nucleo Energetico",
+      "destino": "Campo Solar Sul",
+      "peso": 210
+    },
+    {
+      "origem": "Campo Solar Norte",
+      "destino": "Hangar de Veiculos",
+      "peso": 220
+    },
+    {
+      "origem": "Estacao de Armazenamento",
+      "destino": "Suporte a Vida Central",
+      "peso": 90
+    },
+    {
+      "origem": "Estacao de Armazenamento",
+      "destino": "Habitat A",
+      "peso": 130
+    },
+    {
+      "origem": "Suporte a Vida Central",
+      "destino": "Habitat A",
+      "peso": 95
+    },
+    {
+      "origem": "Suporte a Vida Central",
+      "destino": "Reciclagem de Agua",
+      "peso": 55
+    },
+    {
+      "origem": "Suporte a Vida Central",
+      "destino": "Estufa Hidroponica",
+      "peso": 120
+    },
+    {
+      "origem": "Habitat A",
+      "destino": "Centro de Comando",
+      "peso": 70
+    },
+    {
+      "origem": "Habitat A",
+      "destino": "Habitat B",
+      "peso": 40
+    },
+    {
+      "origem": "Habitat B",
+      "destino": "Centro de Comando",
+      "peso": 85
+    },
+    {
+      "origem": "Habitat B",
+      "destino": "Habitat C",
+      "peso": 45
+    },
+    {
+      "origem": "Habitat B",
+      "destino": "Laboratorio de Pesquisa",
+      "peso": 90
+    },
+    {
+      "origem": "Habitat C",
+      "destino": "Estufa Hidroponica",
+      "peso": 100
+    },
+    {
+      "origem": "Estufa Hidroponica",
+      "destino": "Reciclagem de Agua",
+      "peso": 65
+    },
+    {
+      "origem": "Estufa Hidroponica",
+      "destino": "Laboratorio de Pesquisa",
+      "peso": 150
+    },
+    {
+      "origem": "Laboratorio de Pesquisa",
+      "destino": "Centro de Comando",
+      "peso": 100
+    },
+    {
+      "origem": "Centro de Comando",
+      "destino": "Hangar de Veiculos",
+      "peso": 180
+    }
+  ]
+}
