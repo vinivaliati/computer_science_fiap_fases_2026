@@ -27,10 +27,9 @@ A rede modelada possui 13 módulos e 20 conexões:
 
 | Arquivo | Descrição |
 |---|---|
-| `codigo_fonte.py` | Arquivo principal do sistema (executável via terminal) |
+| `Main.py` | Arquivo principal do sistema (executável via terminal) |
 | `rede_colonia.pdf` | Diagrama visual da rede/grafo da colônia |
 | `documentacao_complementar.pdf` | Documentação com infraestrutura, algoritmos, estruturas de dados, modelagem matemática e reflexão ESG |
-| `link_video.txt` | Link do vídeo de apresentação (YouTube, não listado) |
 | `arquivos_auxiliares/` | Dados de apoio (export JSON da rede) |
 
 ## Funcionalidades implementadas
@@ -83,7 +82,7 @@ O projeto reflete sobre os três pilares ESG aplicados à infraestrutura da col�
 
 ## Como executar
 
-```bash
-python codigo_fonte.py
-```
+
+python Main.py
+
 
