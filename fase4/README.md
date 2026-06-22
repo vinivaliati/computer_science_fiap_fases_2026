@@ -1,4 +1,4 @@
-# Fase 5 - SIGIC: Sistema Inteligente de Gerenciamento da Infraestrutura da Colônia
+# Fase 4 - SIGIC: Sistema Inteligente de Gerenciamento da Infraestrutura da Colônia
 
 Sistema desenvolvido para representar computacionalmente a infraestrutura da colônia
 marciana **Aurora Siger** e otimizar o funcionamento da sua rede energética e
