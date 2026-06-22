@@ -7,13 +7,14 @@ from collections import deque
 
 class Modulo:
     def __init__(self, nome, tipo, consumo_kw=0.0, geracao_kw=0.0,
-                 descricao="", status="OPERACIONAL"):
+                 descricao="", status="OPERACIONAL", prioridade_operacional="MEDIA"):
         self.nome = nome
         self.tipo = tipo
         self.consumo_kw = consumo_kw
         self.geracao_kw = geracao_kw
         self.descricao = descricao
         self.status = status
+        self.prioridade_operacional = prioridade_operacional
 
     def balanco_energia(self):
         return self.geracao_kw - self.consumo_kw
@@ -185,6 +186,7 @@ class GrafoColonia:
                     "consumo_kw": m.consumo_kw,
                     "geracao_kw": m.geracao_kw,
                     "status": m.status,
+                    "prioridade_operacional": m.prioridade_operacional,
                     "descricao": m.descricao,
                 }
                 for m in self.modulos.values()
@@ -212,43 +214,56 @@ def construir_rede_aurora_siger():
     modulos = [
         Modulo("Nucleo Energetico", "Geracao de Energia",
                consumo_kw=40, geracao_kw=500,
-               descricao="Reator compacto que fornece a maior parte da energia da colonia."),
+               descricao="Reator compacto que fornece a maior parte da energia da colonia.",
+               prioridade_operacional="CRITICA"),
         Modulo("Campo Solar Norte", "Geracao de Energia",
                consumo_kw=5, geracao_kw=150,
-               descricao="Painéis solares na regiao norte da base."),
+               descricao="Painéis solares na regiao norte da base.",
+               prioridade_operacional="ALTA"),
         Modulo("Campo Solar Sul", "Geracao de Energia",
                consumo_kw=5, geracao_kw=140,
-               descricao="Painéis solares na regiao sul da base."),
+               descricao="Painéis solares na regiao sul da base.",
+               prioridade_operacional="ALTA"),
         Modulo("Estacao de Armazenamento", "Armazenamento de Energia",
                consumo_kw=10, geracao_kw=0,
-               descricao="Baterias de longa duracao para picos de consumo e noites marcianas."),
+               descricao="Baterias de longa duracao para picos de consumo e noites marcianas.",
+               prioridade_operacional="CRITICA"),
         Modulo("Suporte a Vida Central", "Suporte a Vida",
                consumo_kw=80, geracao_kw=0,
-               descricao="Controle de oxigenio, agua e atmosfera para toda a colonia."),
+               descricao="Controle de oxigenio, agua e atmosfera para toda a colonia.",
+               prioridade_operacional="CRITICA"),
         Modulo("Habitat A", "Habitat",
                consumo_kw=60, geracao_kw=0,
-               descricao="Modulo residencial - ala A."),
+               descricao="Modulo residencial - ala A.",
+               prioridade_operacional="ALTA"),
         Modulo("Habitat B", "Habitat",
                consumo_kw=55, geracao_kw=0,
-               descricao="Modulo residencial - ala B."),
+               descricao="Modulo residencial - ala B.",
+               prioridade_operacional="ALTA"),
         Modulo("Habitat C", "Habitat",
                consumo_kw=50, geracao_kw=0,
-               descricao="Modulo residencial - ala C."),
+               descricao="Modulo residencial - ala C.",
+               prioridade_operacional="ALTA"),
         Modulo("Estufa Hidroponica", "Producao de Alimento",
                consumo_kw=45, geracao_kw=0,
-               descricao="Producao de alimentos via cultivo hidroponico."),
+               descricao="Producao de alimentos via cultivo hidroponico.",
+               prioridade_operacional="ALTA"),
         Modulo("Laboratorio de Pesquisa", "Pesquisa",
                consumo_kw=35, geracao_kw=0,
-               descricao="Pesquisas cientificas e analises de solo/atmosfera."),
+               descricao="Pesquisas cientificas e analises de solo/atmosfera.",
+               prioridade_operacional="MEDIA"),
         Modulo("Centro de Comando", "Operacional",
                consumo_kw=25, geracao_kw=0,
-               descricao="Controle administrativo e operacional da colonia."),
+               descricao="Controle administrativo e operacional da colonia.",
+               prioridade_operacional="CRITICA"),
         Modulo("Reciclagem de Agua", "Suporte a Vida",
                consumo_kw=20, geracao_kw=0,
-               descricao="Tratamento e reciclagem de agua da colonia."),
+               descricao="Tratamento e reciclagem de agua da colonia.",
+               prioridade_operacional="ALTA"),
         Modulo("Hangar de Veiculos", "Operacional",
                consumo_kw=15, geracao_kw=0,
-               descricao="Armazenamento e manutencao de veiculos de superficie."),
+               descricao="Armazenamento e manutencao de veiculos de superficie.",
+               prioridade_operacional="MEDIA"),
     ]
 
     for m in modulos:
@@ -318,8 +333,11 @@ def simular_falha_modulo(grafo, nome_modulo):
 
 def simular_pico_consumo(grafo, fator=1.5):
     geracao_total = sum(m.geracao_kw for m in grafo.modulos.values())
-    consumo_simulado_total = sum(m.consumo_kw * fator for m in grafo.modulos.values())
+    consumo_total = sum(m.consumo_kw for m in grafo.modulos.values())
+    consumo_simulado_total = consumo_total * fator
     saldo = geracao_total - consumo_simulado_total
+
+    fator_critico = (geracao_total / consumo_total) if consumo_total > 0 else float("inf")
 
     detalhes = [
         {
@@ -335,6 +353,7 @@ def simular_pico_consumo(grafo, fator=1.5):
         "geracao_total_kw": geracao_total,
         "consumo_simulado_total_kw": round(consumo_simulado_total, 1),
         "saldo_kw": round(saldo, 1),
+        "fator_critico": round(fator_critico, 2),
         "detalhes": detalhes,
     }
 
@@ -342,10 +361,20 @@ def simular_pico_consumo(grafo, fator=1.5):
 def balanco_energetico_geral(grafo):
     geracao_total = sum(m.geracao_kw for m in grafo.modulos.values())
     consumo_total = sum(m.consumo_kw for m in grafo.modulos.values())
+    saldo = geracao_total - consumo_total
+
+    if saldo > 0:
+        status = "SUPERAVIT"
+    elif saldo == 0:
+        status = "EQUILIBRIO"
+    else:
+        status = "DEFICIT"
+
     return {
         "geracao_total_kw": geracao_total,
         "consumo_total_kw": consumo_total,
-        "saldo_kw": geracao_total - consumo_total,
+        "saldo_kw": saldo,
+        "status": status,
     }
 
 
@@ -404,6 +433,7 @@ def menu_consultar_modulo(grafo):
     print(f"\nNome: {modulo.nome}")
     print(f"Tipo: {modulo.tipo}")
     print(f"Status: {modulo.status}")
+    print(f"Prioridade operacional: {modulo.prioridade_operacional}")
     print(f"Consumo: {modulo.consumo_kw} kW")
     print(f"Geracao: {modulo.geracao_kw} kW")
     print(f"Balanco proprio: {modulo.balanco_energia():+.1f} kW")
@@ -556,6 +586,8 @@ def menu_simulacoes(grafo):
                 print(f"Saldo energetico: +{saldo} kW (colonia suporta o pico).")
             else:
                 print(f"Saldo energetico: {saldo} kW (DEFICIT! risco operacional).")
+            print(f"Fator critico (ponto de deficit): {relatorio['fator_critico']}x "
+                  "(acima deste fator a colonia entra em deficit energetico).")
             pausar()
 
         elif opcao == "3":
@@ -564,6 +596,7 @@ def menu_simulacoes(grafo):
             print(f"Geracao total: {b['geracao_total_kw']} kW")
             print(f"Consumo total: {b['consumo_total_kw']} kW")
             print(f"Saldo: {b['saldo_kw']:+.1f} kW")
+            print(f"Status energetico: {b['status']}")
             pausar()
 
         elif opcao == "0":

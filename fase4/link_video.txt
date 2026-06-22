@@ -1,0 +1,12 @@
+SIGIC - Sistema Inteligente de Gerenciamento da Infraestrutura da Colonia
+Colonia Aurora Siger
+
+Link do video de apresentacao (YouTube - "Nao listado"):
+[SUBSTITUA ESTA LINHA PELO LINK REAL DO VIDEO APOS A GRAVACAO E UPLOAD]
+
+Instrucoes:
+1. Grave o video (ate 5 minutos) cobrindo: infraestrutura da colonia, grafo da
+   rede, algoritmos utilizados, estruturas de dados, modelagem matematica,
+   sustentabilidade/governanca e demonstracao pratica do sistema em Python.
+2. Publique no YouTube com visibilidade "Nao listado".
+3. Substitua a linha acima pelo link completo (https://youtu.be/...).

@@ -6,6 +6,7 @@
       "consumo_kw": 40,
       "geracao_kw": 500,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA",
       "descricao": "Reator compacto que fornece a maior parte da energia da colonia."
     },
     {
@@ -14,6 +15,7 @@
       "consumo_kw": 5,
       "geracao_kw": 150,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA",
       "descricao": "Painéis solares na regiao norte da base."
     },
     {
@@ -22,6 +24,7 @@
       "consumo_kw": 5,
       "geracao_kw": 140,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA",
       "descricao": "Painéis solares na regiao sul da base."
     },
     {
@@ -30,6 +33,7 @@
       "consumo_kw": 10,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA",
       "descricao": "Baterias de longa duracao para picos de consumo e noites marcianas."
     },
     {
@@ -38,6 +42,7 @@
       "consumo_kw": 80,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA",
       "descricao": "Controle de oxigenio, agua e atmosfera para toda a colonia."
     },
     {
@@ -46,6 +51,7 @@
       "consumo_kw": 60,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA",
       "descricao": "Modulo residencial - ala A."
     },
     {
@@ -54,6 +60,7 @@
       "consumo_kw": 55,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA",
       "descricao": "Modulo residencial - ala B."
     },
     {
@@ -62,6 +69,7 @@
       "consumo_kw": 50,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA",
       "descricao": "Modulo residencial - ala C."
     },
     {
@@ -70,6 +78,7 @@
       "consumo_kw": 45,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA",
       "descricao": "Producao de alimentos via cultivo hidroponico."
     },
     {
@@ -78,6 +87,7 @@
       "consumo_kw": 35,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "MEDIA",
       "descricao": "Pesquisas cientificas e analises de solo/atmosfera."
     },
     {
@@ -86,6 +96,7 @@
       "consumo_kw": 25,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA",
       "descricao": "Controle administrativo e operacional da colonia."
     },
     {
@@ -94,6 +105,7 @@
       "consumo_kw": 20,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA",
       "descricao": "Tratamento e reciclagem de agua da colonia."
     },
     {
@@ -102,6 +114,7 @@
       "consumo_kw": 15,
       "geracao_kw": 0,
       "status": "OPERACIONAL",
+      "prioridade_operacional": "MEDIA",
       "descricao": "Armazenamento e manutencao de veiculos de superficie."
     }
   ],
