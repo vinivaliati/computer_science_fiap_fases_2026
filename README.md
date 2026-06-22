@@ -31,6 +31,12 @@
 ![Regressão Linear](https://img.shields.io/badge/Modelagem-Regressão%20Linear-orange)
 ![Estruturas de Dados](https://img.shields.io/badge/Estruturas-Dicionário%20%7C%20Listas-blue)
 
+#### Fase 4
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Grafos](https://img.shields.io/badge/Grafos-Dijkstra%20%7C%20BFS%20%7C%20DFS-blue)
+![Estruturas de Dados](https://img.shields.io/badge/Estruturas-Dict%20%7C%20Heap%20%7C%20Set-orange)
+![Modelagem](https://img.shields.io/badge/Modelagem-Cálculo%20Diferencial-green)
+
 ---
 ## Estrutura do Repositório
 ```
@@ -55,6 +61,11 @@ computer_science_fiap/
 │   ├── referencias/
 │   └── README.md
 ├── fase4/
+│   ├── codigo_fonte.py
+│   ├── arquivos_auxiliares/
+│   ├── referencias/
+│   ├── relatorio.pdf
+│   └── README.md
 ├── fase5/
 ├── fase6/
 └── fase7/
@@ -113,9 +124,23 @@ O projeto inclui:
 
 ---
 
-### 🚧 Fase 4 — *Em breve*
-*(WIP)*
-📄 [Acessar README da Fase 4](./fase4/README.md)
+### ✅ Fase 4 — Gerenciamento da Infraestrutura da Colônia (SIGIC)
+[Acessar README da Fase 4](./fase4/README.md)
+
+[Acessar Relatório da Fase 4](./fase4/relatorio.pdf)
+
+Desenvolvimento do **Sistema Inteligente de Gerenciamento da Infraestrutura da Colônia (SIGIC)** para a missão **Aurora Siger**, representando computacionalmente a rede energética e operacional da base marciana por meio de grafos e algoritmos de caminhos mínimos.
+
+O projeto inclui:
+- Modelagem da colônia como um **grafo ponderado e não-direcionado** com 13 módulos e 20 conexões
+- Organização dos módulos por categoria: geração de energia, suporte à vida, habitats, produção de alimento e operações
+- Atribuição de **prioridade operacional** por módulo: CRITICA / ALTA / MEDIA
+- Cálculo de caminhos mínimos via **Dijkstra** e exploração da rede via **BFS** e **DFS**
+- Identificação de **pontos de articulação** (módulos cuja falha isolaria parte da colônia)
+- Simulação de falhas, picos de consumo e balanço energético: SUPERAVIT / EQUILIBRIO / DEFICIT
+- Modelagem matemática com **cálculo diferencial** para determinação do fator crítico de consumo (f*)
+
+![rede_colonia](fase4/referencias/img/rede_colonia.svg)
 
 ---
 
