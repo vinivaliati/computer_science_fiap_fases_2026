@@ -1,0 +1,40 @@
+2026-09-01 12:53:28 [TESTE] primeira gravacao do bloco 2
+2026-09-01 12:53:28 [TESTE] segunda gravacao do bloco 2
+[2026-09-01 13:01:15] SESSAO: inicio de sessao de NCAS 
+[2026-09-01 13:01:15] SISTEMA: SESSAO: dados carregados de dados_colonia.json
+2026-09-01 13:01:15 [TESTE] primeira gravacao do bloco 2
+2026-09-01 13:01:15 [TESTE] segunda gravacao do bloco 2
+2026-09-01 13:08:02 [CONSULTA] listagem de modulos exibida
+2026-09-01 13:08:02 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:14:34 [CADASTRO] alerta #7 criado no modulo Nucleo Energetico
+2026-09-01 13:14:34 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:21:02 [CADASTRO] alerta #8 criado no modulo Nucleo Energetico
+2026-09-01 13:21:02 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:21:02 [LOGICA] tabelas verdade exibidas
+2026-09-01 13:24:08 [CADASTRO] alerta #8 criado no modulo Nucleo Energetico
+2026-09-01 13:24:08 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:24:08 [LOGICA] tabelas verdade exibidas
+2026-09-01 13:24:08 [PROMPT] prompts exibidos para o alerta #1
+2026-09-01 13:27:39 [PROMPT] prompts exibidos para o alerta #1
+2026-09-01 13:30:21 [PROMPT] prompts exibidos para o alerta #1
+2026-09-01 13:35:51 [PROMPT] prompts exibidos para o alerta #1
+2026-09-01 13:39:14 [ANALISE] alerta #1 analisado: critico=True
+2026-09-01 13:39:14 [ANALISE] alerta #3 analisado: critico=False
+2026-09-01 13:39:14 [BLOQUEIO] acesso negado ao alerta #6
+2026-09-01 13:39:14 [BLOQUEIO] acesso negado ao alerta #1
+2026-09-01 13:39:14 [ERRO] analise pedida para alerta inexistente #99
+[2026-09-01 13:42:45] SESSAO: inicio de sessao de NCAS 
+[2026-09-01 13:42:45] SISTEMA: SESSAO: dados carregados de dados_colonia.json
+2026-09-01 13:42:49 [CONSULTA] listagem de modulos exibida
+2026-09-01 13:42:49 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:42:51 [CONSULTA] listagem de modulos exibida
+2026-09-01 13:42:51 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:42:53 [CONSULTA] listagem de modulos exibida
+2026-09-01 13:42:53 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:42:53 [CONSULTA] listagem de modulos exibida
+2026-09-01 13:42:53 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:42:54 [CONSULTA] listagem de modulos exibida
+2026-09-01 13:42:54 [CONSULTA] listagem de alertas exibida
+2026-09-01 13:42:55 [CONSULTA] listagem de modulos exibida
+2026-09-01 13:42:55 [CONSULTA] listagem de alertas exibida
+2026-09-01 14:21:01 [SESSAO] encerramento do NCAS

@@ -1,0 +1,174 @@
+{
+  "colonia": {
+    "nome": "Aurora Siger",
+    "local": "Marte",
+    "tipo": "Colonia com infraestrutura inteligente e interconectada",
+    "sistema": "NCAS - Nucleo Cognitivo da Aurora Siger",
+    "responsavel": "Centro de Comando"
+  },
+  "modulos": [
+    {
+      "nome": "Nucleo Energetico",
+      "tipo": "Geracao de Energia",
+      "consumo_kw": 40,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA"
+    },
+    {
+      "nome": "Campo Solar Norte",
+      "tipo": "Geracao de Energia",
+      "consumo_kw": 5,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA"
+    },
+    {
+      "nome": "Campo Solar Sul",
+      "tipo": "Geracao de Energia",
+      "consumo_kw": 5,
+      "status": "INATIVO",
+      "prioridade_operacional": "ALTA"
+    },
+    {
+      "nome": "Estacao de Armazenamento",
+      "tipo": "Armazenamento de Energia",
+      "consumo_kw": 10,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA"
+    },
+    {
+      "nome": "Suporte a Vida Central",
+      "tipo": "Suporte a Vida",
+      "consumo_kw": 80,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA"
+    },
+    {
+      "nome": "Habitat A",
+      "tipo": "Habitat",
+      "consumo_kw": 60,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA"
+    },
+    {
+      "nome": "Habitat B",
+      "tipo": "Habitat",
+      "consumo_kw": 55,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA"
+    },
+    {
+      "nome": "Habitat C",
+      "tipo": "Habitat",
+      "consumo_kw": 50,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA"
+    },
+    {
+      "nome": "Estufa Hidroponica",
+      "tipo": "Producao de Alimento",
+      "consumo_kw": 45,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA"
+    },
+    {
+      "nome": "Laboratorio de Pesquisa",
+      "tipo": "Pesquisa",
+      "consumo_kw": 35,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "MEDIA"
+    },
+    {
+      "nome": "Centro de Comando",
+      "tipo": "Operacional",
+      "consumo_kw": 25,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "CRITICA"
+    },
+    {
+      "nome": "Reciclagem de Agua",
+      "tipo": "Suporte a Vida",
+      "consumo_kw": 20,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "ALTA"
+    },
+    {
+      "nome": "Hangar de Veiculos",
+      "tipo": "Operacional",
+      "consumo_kw": 15,
+      "status": "OPERACIONAL",
+      "prioridade_operacional": "MEDIA"
+    }
+  ],
+  "alertas": [
+    {
+      "id": 1,
+      "modulo": "Suporte a Vida Central",
+      "tipo_ocorrencia": "Queda de pressao de oxigenio",
+      "prioridade": "alta",
+      "data": "2026-08-24",
+      "mensagem": "Pressao parcial de oxigenio do setor B caiu 12% em 4 horas.",
+      "falha_detectada": true,
+      "consumo_elevado": false
+    },
+    {
+      "id": 2,
+      "modulo": "Campo Solar Norte",
+      "tipo_ocorrencia": "Falha no rastreador solar",
+      "prioridade": "alta",
+      "data": "2026-08-25",
+      "mensagem": "Rastreador travado a 15 graus e inversor operando acima da faixa nominal.",
+      "falha_detectada": true,
+      "consumo_elevado": true
+    },
+    {
+      "id": 3,
+      "modulo": "Laboratorio de Pesquisa",
+      "tipo_ocorrencia": "Falha intermitente de equipamento",
+      "prioridade": "media",
+      "data": "2026-08-25",
+      "mensagem": "Centrifuga de amostras desliga sozinha durante ciclos longos.",
+      "falha_detectada": true,
+      "consumo_elevado": false
+    },
+    {
+      "id": 4,
+      "modulo": "Estufa Hidroponica",
+      "tipo_ocorrencia": "Consumo acima da media",
+      "prioridade": "media",
+      "data": "2026-08-26",
+      "mensagem": "Consumo 22% acima do previsto apos extensao do ciclo de iluminacao.",
+      "falha_detectada": false,
+      "consumo_elevado": true
+    },
+    {
+      "id": 5,
+      "modulo": "Habitat B",
+      "tipo_ocorrencia": "Solicitacao da tripulacao",
+      "prioridade": "baixa",
+      "data": "2026-08-26",
+      "mensagem": "Pedido de ajuste de temperatura no dormitorio 4.",
+      "falha_detectada": false,
+      "consumo_elevado": false
+    },
+    {
+      "id": 6,
+      "modulo": "Campo Solar Sul",
+      "tipo_ocorrencia": "Desalinhamento de painel",
+      "prioridade": "media",
+      "data": "2026-08-23",
+      "mensagem": "Painel 7 desalinhado apos tempestade de poeira; modulo retirado de operacao.",
+      "falha_detectada": true,
+      "consumo_elevado": false
+    },
+    {
+      "id": 7,
+      "modulo": "Nucleo Energetico",
+      "tipo_ocorrencia": "Oscilacao na saida do reator",
+      "prioridade": "alta",
+      "data": "2026-09-01",
+      "mensagem": "Variacao de 8% na saida do reator durante o ciclo noturno.",
+      "falha_detectada": true,
+      "consumo_elevado": false
+    }
+  ]
+}
