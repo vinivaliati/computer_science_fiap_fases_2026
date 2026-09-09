@@ -4,7 +4,7 @@ Protótipo de um sistema de apoio à decisão para a colônia marciana **Aurora 
 
 ## Link do Vídeo
 
-[link do vídeo no YouTube]
+[[link do vídeo no YouTube](https://youtu.be/FxAyOORM8Q0)]
 
 ---
 
