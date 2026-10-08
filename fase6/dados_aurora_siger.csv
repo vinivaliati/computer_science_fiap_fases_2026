@@ -1,0 +1,61 @@
+id_alerta,modulo,codigo_sensor_hex,codigo_sensor_dec,status,criticidade,latencia_prevista_ms,latencia_real_ms,tensao_v,corrente_a,tempo_desde_registro_min,risco_operacional
+AL-001,Sensoriamento Externo,0xD6,214,Atencao,3,97.62,101.97,8.49,1.17,87,Medio
+AL-002,Sensoriamento Interno,0xEB,235,Normal,2,87.89,82.97,3.48,2.428,20,Medio
+AL-003,Seguranca Perimetral,0xDB,219,Critico,4,67.72,53.92,8.62,0.435,14,Medio
+AL-004,Controle de Navegacao,0xE4,228,Atencao,3,52.07,47.57,11.85,1.22,134,Baixo
+AL-005,Sensoriamento Externo,0x81,129,Critico,4,11.46,12.22,6.65,0.138,91,Medio
+AL-006,Sensoriamento Externo,0x50,80,Critico,4,77.1,82.42,10.55,0.516,49,Alto
+AL-007,Comunicacao Secundaria,0x2B,43,Normal,2,56.77,59.35,3.57,2.121,13,Medio
+AL-008,Sensoriamento Interno,0xD4,212,Critico,5,72.75,61.6,7.83,2.407,81,Medio
+AL-009,Sensoriamento Interno,0x40,64,Normal,1,49.24,51.99,4.53,2.025,70,Baixo
+AL-010,Comunicacao Principal,0x50,80,Atencao,3,31.86,17.76,3.35,2.057,162,Alto
+AL-011,Suporte Vital,0x20,32,Critico,5,111.89,117.19,10.7,1.179,98,Medio
+AL-012,Suporte Energetico,0xCD,205,Atencao,3,107.59,109.52,7.41,0.387,0,Alto
+AL-013,Sensoriamento Externo,0xCC,204,Critico,3,94.81,121.79,7.02,0.161,62,Alto
+AL-014,Comunicacao Principal,0x96,150,Critico,5,44.58,37.22,7.72,2.278,142,Alto
+AL-015,Controle Ambiental,0x3D,61,Atencao,1,113.71,126.69,10.96,1.598,133,Medio
+AL-016,Controle Ambiental,0x5B,91,Atencao,1,108.18,114.77,7.99,2.038,128,Medio
+AL-017,Hidroponia,0xAB,171,Atencao,3,99.98,78.74,5.23,0.388,117,Medio
+AL-018,Sensoriamento Interno,0x33,51,Critico,4,87.33,90.09,6.46,2.432,38,Medio
+AL-019,Comunicacao Principal,0x80,128,Atencao,3,26.29,25.77,3.59,0.928,125,Baixo
+AL-020,Seguranca Perimetral,0xCA,202,Atencao,3,118.42,121.18,5.41,1.713,144,Alto
+AL-021,Sensoriamento Interno,0xC8,200,Critico,4,61.73,61.37,10.4,2.016,69,Alto
+AL-022,Controle de Navegacao,0xC2,194,Atencao,3,75.0,76.74,9.19,0.14,147,Alto
+AL-023,Controle Ambiental,0xB8,184,Normal,1,113.46,116.88,10.59,1.722,177,Alto
+AL-024,Seguranca Perimetral,0xF8,248,Critico,4,38.37,18.61,9.04,2.061,59,Medio
+AL-025,Comunicacao Principal,0x82,130,Critico,4,20.24,8.72,6.34,1.842,151,Medio
+AL-026,Comunicacao Principal,0xA5,165,Critico,4,80.62,90.15,4.03,0.488,111,Baixo
+AL-027,Controle de Navegacao,0xBC,188,Normal,1,117.1,109.22,7.52,1.176,160,Baixo
+AL-028,Suporte Vital,0xC2,194,Normal,1,29.67,20.92,6.49,1.886,127,Medio
+AL-029,Controle de Navegacao,0x07,7,Atencao,3,80.0,84.32,11.82,1.268,26,Alto
+AL-030,Comunicacao Principal,0x3C,60,Atencao,3,73.46,61.47,7.58,0.569,3,Baixo
+AL-031,Comunicacao Principal,0x7B,123,Normal,1,14.8,14.71,5.73,2.22,36,Alto
+AL-032,Comunicacao Principal,0x73,115,Critico,5,70.8,72.32,8.28,2.453,159,Alto
+AL-033,Controle de Navegacao,0x17,23,Atencao,2,28.64,34.32,9.36,1.468,31,Alto
+AL-034,Sensoriamento Externo,0x10,16,Normal,1,25.41,26.15,7.81,2.206,136,Medio
+AL-035,Sensoriamento Externo,0xF9,249,Normal,1,42.3,46.42,10.84,2.292,35,Medio
+AL-036,Comunicacao Principal,0x72,114,Critico,4,17.8,21.91,6.75,0.222,97,Baixo
+AL-037,Sensoriamento Externo,0x39,57,Normal,1,83.92,76.61,11.84,2.113,179,Baixo
+AL-038,Suporte Energetico,0x3B,59,Critico,4,69.08,65.44,6.14,2.087,107,Alto
+AL-039,Controle Ambiental,0x8F,143,Critico,5,102.62,99.62,9.39,0.432,113,Medio
+AL-040,Controle de Navegacao,0xB6,182,Normal,2,97.47,87.14,5.66,1.154,116,Baixo
+AL-041,Hidroponia,0xEC,236,Critico,5,85.73,73.34,4.12,0.539,128,Alto
+AL-042,Sensoriamento Externo,0xC2,194,Critico,4,82.28,79.53,7.09,1.852,153,Medio
+AL-043,Suporte Vital,0xBD,189,Critico,4,23.22,17.78,4.12,0.847,143,Baixo
+AL-044,Suporte Vital,0x16,22,Normal,2,62.08,59.97,4.81,1.141,9,Alto
+AL-045,Controle Ambiental,0x44,68,Critico,5,14.98,26.51,7.68,2.156,3,Alto
+AL-046,Sensoriamento Externo,0x53,83,Critico,4,113.87,102.38,10.84,1.627,177,Medio
+AL-047,Comunicacao Principal,0x49,73,Atencao,3,60.41,65.9,6.66,2.407,43,Medio
+AL-048,Comunicacao Secundaria,0x59,89,Critico,5,14.29,14.86,8.68,0.908,153,Alto
+AL-049,Comunicacao Secundaria,0x77,119,Critico,4,38.68,54.29,6.33,2.348,20,Alto
+AL-050,Controle Ambiental,0xB0,176,Atencao,3,29.52,29.2,9.83,2.036,35,Medio
+AL-051,Sensoriamento Externo,0x16,22,Normal,1,73.86,75.3,5.38,1.732,98,Baixo
+AL-052,Comunicacao Principal,0x8C,140,Atencao,3,68.78,77.35,7.62,1.035,18,Medio
+AL-053,Hidroponia,0xF9,249,Critico,5,103.19,106.33,9.19,1.258,68,Medio
+AL-054,Hidroponia,0x8F,143,Normal,1,70.91,69.91,5.15,2.371,38,Baixo
+AL-055,Seguranca Perimetral,0x08,8,Normal,2,117.17,119.77,9.44,2.425,144,Baixo
+AL-056,Sensoriamento Externo,0x1A,26,Atencao,2,56.87,70.27,5.24,1.052,4,Medio
+AL-057,Suporte Energetico,0xD8,216,Critico,5,118.53,106.95,10.37,2.373,131,Medio
+AL-058,Controle de Navegacao,0x59,89,Atencao,3,95.49,84.23,8.16,1.118,38,Medio
+AL-059,Comunicacao Secundaria,0xBD,189,Normal,1,61.55,64.13,9.79,1.5,112,Baixo
+AL-060,Comunicacao Principal,0x9F,159,Critico,5,34.6,27.98,11.68,0.129,60,Medio
