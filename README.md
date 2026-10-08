@@ -150,10 +150,26 @@ O projeto inclui:
 
 ---
 
-### 🚧 Fase 6 — *Em breve*
-*(WIP)*
 📄 [Acessar README da Fase 6](./fase6/README.md)
+### ✅ Fase 6 — Comunicação Inteligente da Colônia (SCIC)
+[Acessar README da Fase 6](./fase6/README.md)
 
+[Acessar Relatório da Fase 6](./fase6/relatorio_tecnico.md)
+
+Desenvolvimento do **Sistema de Comunicação Inteligente da Colônia (SCIC)** para a missão **Aurora Siger**, aplicando estruturas de dados e análise numérica para priorizar alertas e organizar o tráfego de informação da base marciana.
+
+O projeto inclui:
+- Organização de dados simulados de comunicação em **CSV com Pandas/NumPy** (60 registros, 10 módulos)
+- Cálculo de **erro absoluto e relativo** entre latência prevista e observada, e de potência elétrica por módulo (V × I)
+- Modelo simples de **regressão linear** para previsão de latência, avaliado com MAE, MSE, RMSE e R²
+- Priorização de alertas críticos via **heap** (max-heap implementado manualmente, com heapify-up/down)
+- Busca por prefixo em módulos e sensores via **trie**
+- Conversão entre bases numéricas (decimal/binário/hexadecimal) e cálculo de potência pela **Lei de Ohm**
+- Discussão sobre gerenciamento inteligente da comunicação e reflexão social, cultural e sustentável da solução
+
+![grafico_latencia_status](fase6/graficos_ou_imagens/analise_latencia_status.png)
+
+---
 ---
 
 ### 🚧 Fase 7 — *Em breve*
