@@ -144,10 +144,23 @@ O projeto inclui:
 
 ---
 
-### 🚧 Fase 5 — *Em breve*
-*(WIP)*
-📄 [Acessar README da Fase 5](./fase5/README.md)
+### ✅ Fase 5 — Núcleo Cognitivo da Aurora Siger (NCAS)
+[Acessar README da Fase 5](./fase5/README.md)
 
+[Acessar Relatório da Fase 5](./fase5/relatorio.pdf)
+
+Desenvolvimento do **Núcleo Cognitivo da Aurora Siger (NCAS)**, um sistema de apoio à decisão para a colônia marciana **Aurora Siger**, utilizando arquivos texto e JSON, álgebra booleana com simplificação de expressões e engenharia de prompts em Python puro.
+
+O projeto inclui:
+- Persistência em **duas camadas**: `dados_colonia.json` (módulos e alertas, consultados por campo) e `registros_colonia.txt` (log cronológico em modo append)
+- Reaproveitamento dos **13 módulos da Fase 4**, com os mesmos nomes, consumo e prioridade operacional
+- **Duas regras booleanas simplificadas** — bloqueio de acesso (Teorema de De Morgan) e criticidade do alerta (propriedade Distributiva) — com prova de equivalência por **tabela-verdade executável** (12 linhas)
+- **Quatro técnicas de engenharia de prompt**: zero-shot, few-shot, chain-of-thought e structured output, geradas como funções que injetam os dados reais de cada alerta
+- **Simulação local de respostas do assistente**, derivadas das regras booleanas, sem integração com API externa
+- Comparação entre **prompt vago × prompt refinado** como análise de otimização
+- Reflexão sobre vieses, diversidade, auditabilidade e responsabilidade humana na decisão final
+
+---
 ---
 
 📄 [Acessar README da Fase 6](./fase6/README.md)
