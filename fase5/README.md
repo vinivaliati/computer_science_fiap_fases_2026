@@ -1,4 +1,4 @@
-# Aurora Siger — NCAS (Núcleo Cognitivo da Aurora Siger)
+# Aurora Siger: NCAS (Núcleo Cognitivo da Aurora Siger)
 
 Protótipo de um sistema de apoio à decisão para a colônia marciana **Aurora Siger**, utilizando arquivos texto e JSON, álgebra booleana com simplificação de expressões e engenharia de prompts em Python puro para organizar registros operacionais, classificar alertas e simular interações com um assistente inteligente.
 
@@ -24,8 +24,8 @@ Protótipo de um sistema de apoio à decisão para a colônia marciana **Aurora 
 ## O que o sistema faz
 
 - Organiza os dados da colônia em **duas camadas de persistência**, com critério explícito:
-  - `dados_colonia.json` — registros com campos fixos que o sistema precisa consultar e filtrar
-  - `registros_colonia.txt` — eventos cronológicos, gravados em modo *append*
+  - `dados_colonia.json`: registros com campos fixos que o sistema precisa consultar e filtrar
+  - `registros_colonia.txt`: eventos cronológicos, gravados em modo *append*
 - Reaproveita os **13 módulos da Fase 4**, com os mesmos nomes, tipos, consumo e prioridade operacional
 - Mantém, para cada alerta operacional: módulo de origem, tipo de ocorrência, prioridade, data, mensagem e as condições booleanas da análise
 - Aplica **duas regras booleanas simplificadas** na análise de um alerta:
@@ -47,7 +47,7 @@ Protótipo de um sistema de apoio à decisão para a colônia marciana **Aurora 
 | **Bloqueio de acesso** | `NOT (AUTORIZADO AND MODULO_ATIVO)` | `(NOT AUTORIZADO) OR (NOT MODULO_ATIVO)` | De Morgan | Causa do bloqueio identificável |
 | **Criticidade do alerta** | `(FALHA AND MOD_CRITICO) OR (FALHA AND CONSUMO_ALTO)` | `FALHA AND (MOD_CRITICO OR CONSUMO_ALTO)` | Distributiva | 3 operações → 2 |
 
-As duas formas de cada regra permanecem implementadas no código. A função `tabela_verdade()`, acionada pela opção 4 do menu, avalia ambas para todas as combinações possíveis de entrada e compara os resultados — 12 linhas de prova de equivalência. Detalhamento em `regras_logicas.pdf`.
+As duas formas de cada regra permanecem implementadas no código. A função `tabela_verdade()`, acionada pela opção 4 do menu, avalia ambas para todas as combinações possíveis de entrada e compara os resultados, somando 12 linhas de prova de equivalência. Detalhamento em `regras_logicas.pdf`.
 
 ---
 
@@ -72,7 +72,7 @@ As duas formas de cada regra permanecem implementadas no código. A função `ta
 | **Chain-of-Thought** | Decidir a criticidade expondo o raciocínio passo a passo | Passo a passo + conclusão |
 | **Structured Output** | Resposta padronizada e consumível por outro programa | JSON com 4 chaves fixas |
 
-Os prompts são **funções, não textos fixos**: cada um recebe o alerta e o módulo correspondente e injeta os dados reais no molde, de modo que trocar o alerta muda o prompt gerado. As respostas simuladas derivam das regras booleanas do sistema — apenas a redação final é predefinida. O prompt *chain-of-thought* reproduz, em linguagem natural, a mesma expressão booleana que o programa avalia em Python. Detalhamento em `prompts_utilizados.pdf`.
+Os prompts são **funções, não textos fixos**: cada um recebe o alerta e o módulo correspondente e injeta os dados reais no molde, de modo que trocar o alerta muda o prompt gerado. As respostas simuladas derivam das regras booleanas do sistema, e apenas a redação final é predefinida. O prompt *chain-of-thought* reproduz, em linguagem natural, a mesma expressão booleana que o programa avalia em Python. Detalhamento em `prompts_utilizados.pdf`.
 
 ---
 
@@ -91,12 +91,12 @@ A opção 8 do menu (*Recarregar dados do JSON*) torna esse ciclo observável: e
 
 ## Ética, Diversidade e Responsabilidade
 
-- **Vieses** — as respostas do assistente são geradas por templates que codificam critérios definidos por quem escreveu o sistema. Em um sistema real, esses critérios viriam dos dados de treinamento e carregariam os vieses presentes neles; um núcleo cognitivo que prioriza atendimento pode, sem decisão explícita de ninguém, despriorizar sistematicamente setores, turnos ou grupos da tripulação
-- **Diversidade** — equipes diversas identificam vieses que equipes homogêneas não enxergam, porque reconhecem os padrões que as afetam; a composição de quem constrói o sistema é uma variável técnica, não apenas social
-- **Decisão sobre fatos** — a criticidade é determinada pela prioridade operacional cadastrada do módulo, e não pelo rótulo de urgência que o operador digitou, reduzindo a influência de julgamento subjetivo
-- **Auditabilidade** — cada análise imprime a expressão booleana e os valores de entrada que produziram o resultado; uma decisão que pode ser explicada é uma decisão que pode ser contestada
-- **Linguagem** — as respostas automáticas usam terminologia técnica e neutra, referindo-se a módulos e ocorrências, nunca a juízos sobre pessoas
-- **Responsabilidade humana** — ao final de cada análise o sistema declara que a decisão final cabe à equipe humana do Centro de Comando; o sistema **sugere**, a pessoa **decide**
+- **Vieses:** as respostas do assistente são geradas por templates que codificam critérios definidos por quem escreveu o sistema. Em um sistema real, esses critérios viriam dos dados de treinamento e carregariam os vieses presentes neles; um núcleo cognitivo que prioriza atendimento pode, sem decisão explícita de ninguém, despriorizar sistematicamente setores, turnos ou grupos da tripulação
+- **Diversidade:** equipes diversas identificam vieses que equipes homogêneas não enxergam, porque reconhecem os padrões que as afetam; a composição de quem constrói o sistema é uma variável técnica, não apenas social
+- **Decisão sobre fatos:** a criticidade é determinada pela prioridade operacional cadastrada do módulo, e não pelo rótulo de urgência que o operador digitou, reduzindo a influência de julgamento subjetivo
+- **Auditabilidade:** cada análise imprime a expressão booleana e os valores de entrada que produziram o resultado; uma decisão que pode ser explicada é uma decisão que pode ser contestada
+- **Linguagem:** as respostas automáticas usam terminologia técnica e neutra, referindo-se a módulos e ocorrências, nunca a juízos sobre pessoas
+- **Responsabilidade humana:** ao final de cada análise o sistema declara que a decisão final cabe à equipe humana do Centro de Comando; o sistema **sugere**, a pessoa **decide**
 
 ---
 
@@ -123,4 +123,4 @@ Requer apenas Python 3 (biblioteca padrão, sem dependências externas):
 
     python codigo_fonte.py
 
-Execute a partir de dentro da pasta `fase5/` — os caminhos dos arquivos de dados são relativos. Navegue pelo menu digitando o número da opção desejada.
+Execute a partir de dentro da pasta `fase5/`, porque os caminhos dos arquivos de dados são relativos. Navegue pelo menu digitando o número da opção desejada.

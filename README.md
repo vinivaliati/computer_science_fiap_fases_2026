@@ -37,6 +37,20 @@
 ![Estruturas de Dados](https://img.shields.io/badge/Estruturas-Dict%20%7C%20Heap%20%7C%20Set-orange)
 ![Modelagem](https://img.shields.io/badge/Modelagem-Cálculo%20Diferencial-green)
 
+#### Fase 5
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Arquivos](https://img.shields.io/badge/Arquivos-JSON%20%7C%20TXT-blue)
+![Lógica Booleana](https://img.shields.io/badge/Lógica-De%20Morgan%20%7C%20Distributiva-green)
+![Prompts](https://img.shields.io/badge/Prompts-Zero--shot%20%7C%20Few--shot%20%7C%20CoT-orange)
+
+#### Fase 6
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-f7931e?style=flat)
+![Estruturas de Dados](https://img.shields.io/badge/Estruturas-Heap%20%7C%20Trie-blue)
+![Regressão Linear](https://img.shields.io/badge/Modelagem-Regressão%20Linear-orange)
+
 ---
 ## Estrutura do Repositório
 ```
@@ -67,13 +81,26 @@ computer_science_fiap/
 │   ├── relatorio.pdf
 │   └── README.md
 ├── fase5/
+│   ├── codigo_fonte.py
+│   ├── dados_colonia.json
+│   ├── registros_colonia.txt
+│   ├── regras_logicas.pdf
+│   ├── prompts_utilizados.pdf
+│   ├── relatorio.pdf
+│   └── README.md
 ├── fase6/
+│   ├── codigo_fonte.py
+│   ├── dados_aurora_siger.csv
+│   ├── arquivos_auxiliares/
+│   ├── graficos_ou_imagens/
+│   ├── relatorio_tecnico.md
+│   └── README.md
 └── fase7/
 ```
 ---
 ## Fases
 
-### ✅ Fase 1 — Decolagem da Missão
+### ✅ Fase 1: Decolagem da Missão
 [Acessar README da Fase 1](./fase1/README.md)
 
 [Acessar Relatório da Fase 1](./fase1/relatorio.pdf)
@@ -84,7 +111,7 @@ Análise de **10000 leituras de telemetria** do sistema pré-decolagem da espaç
 
 ---
 
-### ✅ Fase 2 — Gerenciamento de Pouso (MGPEB)
+### ✅ Fase 2: Gerenciamento de Pouso (MGPEB)
 [Acessar README da Fase 2](./fase2/README.md)
 
 [Acessar Relatório da Fase 2](./fase2/relatorio.pdf)
@@ -104,7 +131,7 @@ O projeto inclui:
 
 ---
 
-### ✅ Fase 3 — Gestão da Colônia Espacial (MGCE)
+### ✅ Fase 3: Gestão da Colônia Espacial (MGCE)
 [Acessar README da Fase 3](./fase3/README.md)
 
 [Acessar Relatório da Fase 3](./fase3/relatorio.pdf)
@@ -124,7 +151,7 @@ O projeto inclui:
 
 ---
 
-### ✅ Fase 4 — Gerenciamento da Infraestrutura da Colônia (SIGIC)
+### ✅ Fase 4: Gerenciamento da Infraestrutura da Colônia (SIGIC)
 [Acessar README da Fase 4](./fase4/README.md)
 
 [Acessar Relatório da Fase 4](./fase4/relatorio.pdf)
@@ -144,7 +171,7 @@ O projeto inclui:
 
 ---
 
-### ✅ Fase 5 — Núcleo Cognitivo da Aurora Siger (NCAS)
+### ✅ Fase 5: Núcleo Cognitivo da Aurora Siger (NCAS)
 [Acessar README da Fase 5](./fase5/README.md)
 
 [Acessar Relatório da Fase 5](./fase5/relatorio.pdf)
@@ -154,17 +181,15 @@ Desenvolvimento do **Núcleo Cognitivo da Aurora Siger (NCAS)**, um sistema de a
 O projeto inclui:
 - Persistência em **duas camadas**: `dados_colonia.json` (módulos e alertas, consultados por campo) e `registros_colonia.txt` (log cronológico em modo append)
 - Reaproveitamento dos **13 módulos da Fase 4**, com os mesmos nomes, consumo e prioridade operacional
-- **Duas regras booleanas simplificadas** — bloqueio de acesso (Teorema de De Morgan) e criticidade do alerta (propriedade Distributiva) — com prova de equivalência por **tabela-verdade executável** (12 linhas)
+- **Duas regras booleanas simplificadas**, bloqueio de acesso (Teorema de De Morgan) e criticidade do alerta (propriedade Distributiva), com prova de equivalência por **tabela-verdade executável** (12 linhas)
 - **Quatro técnicas de engenharia de prompt**: zero-shot, few-shot, chain-of-thought e structured output, geradas como funções que injetam os dados reais de cada alerta
 - **Simulação local de respostas do assistente**, derivadas das regras booleanas, sem integração com API externa
 - Comparação entre **prompt vago × prompt refinado** como análise de otimização
 - Reflexão sobre vieses, diversidade, auditabilidade e responsabilidade humana na decisão final
 
 ---
----
 
-📄 [Acessar README da Fase 6](./fase6/README.md)
-### ✅ Fase 6 — Comunicação Inteligente da Colônia (SCIC)
+### ✅ Fase 6: Comunicação Inteligente da Colônia (SCIC)
 [Acessar README da Fase 6](./fase6/README.md)
 
 [Acessar Relatório da Fase 6](./fase6/relatorio_tecnico.md)
@@ -183,11 +208,11 @@ O projeto inclui:
 ![grafico_latencia_status](fase6/graficos_ou_imagens/analise_latencia_status.png)
 
 ---
----
 
-### 🚧 Fase 7 — *Em breve*
+### 🚧 Fase 7: *Em breve*
 *(WIP)*
-📄 [Acessar README da Fase 7](./fase7/README.md)
+
+[Acessar README da Fase 7](./fase7/README.md)
 
 ---
 

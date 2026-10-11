@@ -1,6 +1,7 @@
 # gerar_dados.py
 # Script usado APENAS para gerar o arquivo dados_aurora_siger.csv a partir de
 # dados simulados (sensores fictícios da colônia Aurora Siger em Marte).
+# Rodar de dentro da pasta fase6/: python arquivos_auxiliares/gerar_dados.py
 # Não faz parte do menu principal do sistema, mas mostra como os dados
 # simulados foram construídos (reprodutibilidade garantida pelo seed fixo).
 

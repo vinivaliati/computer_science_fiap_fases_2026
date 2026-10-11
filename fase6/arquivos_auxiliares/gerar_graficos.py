@@ -2,6 +2,7 @@
 # Script auxiliar: le dados_aurora_siger.csv e gera o grafico de apoio
 # salvo em graficos_ou_imagens/analise_latencia_status.png.
 # Nao faz parte do menu principal do sistema (codigo_fonte.py).
+# Rodar de dentro da pasta fase6/: python arquivos_auxiliares/gerar_graficos.py
 
 import os
 import pandas as pd
