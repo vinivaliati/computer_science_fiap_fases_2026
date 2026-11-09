@@ -1,0 +1,9 @@
+# material do curso e arquivos do agente (não publicar)
+CLAUDE.md
+CLAUDE.novo.md
+material/
+__pycache__/
+.venv/
+aurora_siger.db
+__pycache__/
+.env
