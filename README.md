@@ -1,15 +1,6 @@
 # computer_science_fiap
 > Repositório do grupo contendo os projetos desenvolvidos ao longo do curso de Ciência da Computação na FIAP.
 ---
-## Integrantes
-| Nome |
-|------|
-| Arthur Apolonio de Oliveira |
-| Matheus Bejarano da Costa Resende |
-| Dayvid Daniel Duarte Ramos |
-| Bryan Lima Garcia |
-| Vinicius Valiati Costa |
----
 ## Tecnologias Utilizadas
 #### Fase 1
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
@@ -50,6 +41,14 @@
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-f7931e?style=flat)
 ![Estruturas de Dados](https://img.shields.io/badge/Estruturas-Heap%20%7C%20Trie-blue)
 ![Regressão Linear](https://img.shields.io/badge/Modelagem-Regressão%20Linear-orange)
+
+#### Fase 7
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-f7931e?style=flat)
+![Gemini](https://img.shields.io/badge/IA-Google%20Gemini-8E75B2?style=flat&logo=googlegemini&logoColor=white)
+![Tinkercad](https://img.shields.io/badge/Tinkercad-Arduino-1477D1?style=flat)
 
 ---
 ## Estrutura do Repositório
@@ -96,6 +95,15 @@ computer_science_fiap/
 │   ├── relatorio_tecnico.md
 │   └── README.md
 └── fase7/
+    ├── codigo_fonte.py
+    ├── simulacao_computacional.py
+    ├── script_banco.sql
+    ├── dados_aurora_siger.csv
+    ├── modulos/
+    ├── tinkercad/
+    ├── graficos_ou_imagens/
+    ├── relatorio_tecnico.md
+    └── README.md
 ```
 ---
 ## Fases
@@ -209,10 +217,24 @@ O projeto inclui:
 
 ---
 
-### 🚧 Fase 7: *Em breve*
-*(WIP)*
-
+### ✅ Fase 7: Futuro Sustentável em Marte (SIFSM)
 [Acessar README da Fase 7](./fase7/README.md)
+
+[Acessar Relatório da Fase 7](./fase7/relatorio_tecnico.md)
+
+Desenvolvimento do **Sistema Integrado de Futuro Sustentável em Marte (SIFSM)**, protótipo que apoia a autonomia energética da colônia **Aurora Siger**, integrando banco de dados, lógica booleana, simulação numérica, regressão linear, agentes de IA e um circuito Arduino no Tinkercad.
+
+O projeto inclui:
+- Base simulada de **48 registros** (8 módulos ao longo de 6 ciclos) em **SQLite**, com CRUD completo e tratamento de erros
+- **Regra booleana de risco** `(B AND E) OR (C AND T)`, com tabela-verdade e circuito lógico em portas AND, OR e NOT
+- Fila de alertas com **heap**, histórico com **pilha**, busca por **tabela hash** e impacto de falhas via **grafo + BFS**
+- Simulação do estado de carga da bateria por **integração numérica** (regra do trapézio), incluindo cenário de tempestade de poeira
+- **Regressão linear simples e múltipla** para previsão de consumo, avaliada com MAE, RMSE e R²
+- Circuito no **Tinkercad (Arduino Uno)** com potenciômetros, sensor TMP36, LEDs e buzzer aplicando a mesma lógica
+- Três **agentes de IA (Gemini)** com ferramentas, handoffs, guardrails e tracing, com modo simulado sem chave de API
+- Benchmark laço × NumPy e discussão sobre **CPU, GPU e NPU** no contexto da colônia
+
+![simulacao_soc_ciclo4](fase7/graficos_ou_imagens/simulacao_soc_ciclo4.png)
 
 ---
 
